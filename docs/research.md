@@ -26,8 +26,8 @@ The adjacent user question [How can I test dependabot.yml before merging?](https
 | npm validator | [`@bugron/validate-dependabot-yaml`](https://www.npmjs.com/package/@bugron/validate-dependabot-yaml) adds a few semantic checks, but is a small Node-only package with low adoption and no manifest scan. | Differentiate with offline Python distribution and coverage. |
 | Full updater | [`dependabot/cli`](https://github.com/dependabot/cli) runs updater jobs in Docker. It is powerful but heavyweight for a pre-commit/CI doctor and still needs job setup. | Keep the local tool fast and dependency-light. |
 | GitHub Actions/issue-form validation | [GitHub CLI issue #4031](https://github.com/cli/cli/issues/4031) requests local workflow and form validation; generic YAML/schema tools exist. | Broader space with less specific coverage value. |
-| Documentation/code-block drift | Tools such as [`txm`](https://github.com/gezell/txm) and [`mdcode`](https://github.com/joelparkerhenderson/mdcode) already execute or lint Markdown snippets. | Saturated and not repository-config specific. |
-| Path portability audit | Existing projects in this workspace and tools such as [`git-path-audit`](https://github.com/joelparkerhenderson/git-path-audit) already target cross-platform filename hazards. | Avoid duplicate scope. |
+| Documentation/code-block drift | Tools such as [`txm`](https://github.com/anko/txm) and [`mdcode`](https://github.com/szkiba/mdcode) already execute or lint Markdown snippets. | Saturated and not repository-config specific. |
+| Path portability audit | Existing projects in this workspace and tools such as [`git-path-audit`](https://github.com/bunta-expert/git-path-audit) already target cross-platform filename hazards. | Avoid duplicate scope. |
 
 ## Why this deserves to exist
 
