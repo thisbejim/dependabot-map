@@ -52,7 +52,7 @@ def render_sarif(report: Report) -> str:
                 "tool": {
                     "driver": {
                         "name": "dependabot-map",
-                        "version": "0.1.0",
+                        "version": "0.1.1",
                         "informationUri": "https://github.com/thisbejim/dependabot-map",
                         "rules": rules,
                     }

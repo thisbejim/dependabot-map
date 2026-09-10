@@ -69,8 +69,14 @@ def _apply_coverage(report: Report, repo_root: Path, specs: list[UpdateSpec]) ->
                 "files": [manifest.path for manifest in matched],
             }
         )
-        if not matched:
-            for directory_index, directory in enumerate(spec.directories):
+        for directory_index, directory in enumerate(spec.directories):
+            directory_matches = [
+                manifest
+                for manifest in manifests
+                if spec.ecosystem in manifest.ecosystems
+                and path_pattern_matches(directory, manifest_directory(manifest.path))
+            ]
+            if not directory_matches:
                 directory_path = (
                     f"{spec.path}.directory"
                     if len(spec.directories) == 1

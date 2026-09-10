@@ -86,6 +86,26 @@ updates:
     assert not any(finding.code.startswith("COVERAGE_") for finding in report.findings)
 
 
+def test_each_directory_in_a_list_is_checked(tmp_path: Path) -> None:
+    (tmp_path / "packages" / "api" / "package.json").parent.mkdir(parents=True)
+    (tmp_path / "packages" / "api" / "package.json").write_text("{}", encoding="utf-8")
+    config = write_config(
+        tmp_path,
+        """version: 2
+updates:
+  - package-ecosystem: npm
+    directories: [/packages/api, /packages/old]
+    schedule: {interval: weekly}
+""",
+    )
+
+    report = check_repository(config, tmp_path)
+
+    missing = [finding for finding in report.findings if finding.code == "COVERAGE_NO_MANIFEST"]
+    assert len(missing) == 1
+    assert missing[0].path == "updates[0].directories[1]"
+
+
 def test_semantic_errors_include_actionable_paths(tmp_path: Path) -> None:
     config = write_config(
         tmp_path,
