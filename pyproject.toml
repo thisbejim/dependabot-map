@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "dependabot-map"
-version = "0.1.1"
+version = "0.1.2"
 description = "Offline Dependabot configuration and repository coverage doctor"
 readme = "README.md"
 requires-python = ">=3.11"

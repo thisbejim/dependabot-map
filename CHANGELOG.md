@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.1.2 — 2026-09-10
+
+* document install commands that work directly from the public Git repository
+  and release assets;
+* keep package and SARIF metadata aligned with the release version.
+
 ## 0.1.1 — 2026-09-10
 
 * report missing entries independently when a `directories` list is only

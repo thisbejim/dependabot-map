@@ -13,17 +13,21 @@ map that complements schema hooks such as `check-jsonschema`.
 
 ## Install
 
-With [uv](https://docs.astral.sh/uv/):
+The project is distributed from GitHub (PyPI publication is intentionally not
+required):
 
 ```bash
-uv tool install dependabot-map
+uv tool install git+https://github.com/thisbejim/dependabot-map.git
 ```
 
 Or with pipx:
 
 ```bash
-pipx install dependabot-map
+pipx install git+https://github.com/thisbejim/dependabot-map.git
 ```
+
+Release wheel and source archives are attached to the
+[v0.1.2 release](https://github.com/thisbejim/dependabot-map/releases/tag/v0.1.2).
 
 From a checkout while developing:
 
