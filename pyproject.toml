@@ -1,0 +1,52 @@
+[build-system]
+requires = ["hatchling>=1.25"]
+build-backend = "hatchling.build"
+
+[project]
+name = "dependabot-map"
+version = "0.1.0"
+description = "Offline Dependabot configuration and repository coverage doctor"
+readme = "README.md"
+requires-python = ">=3.11"
+license = { file = "LICENSE" }
+authors = [{ name = "James Brodie", email = "10917363+thisbejim@users.noreply.github.com" }]
+keywords = ["dependabot", "github", "lint", "security", "developer-tools"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Environment :: Console",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Topic :: Software Development :: Quality Assurance",
+]
+dependencies = ["PyYAML>=6.0,<7"]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.0,<9",
+  "ruff>=0.9,<1",
+]
+
+[project.scripts]
+dependabot-map = "dependabot_map.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/dependabot_map"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+
+[tool.ruff]
+line-length = 120
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["B018"]
